@@ -4,7 +4,7 @@ while True :
     if len(password) < 8 :
         print("Senha deve conter 8 caracteres")
 
-    if password == "INFINITY" or password == "infinity":
+    if password == "INFINITY" :
         print("Você digitou a senha certa!")
         break
     
