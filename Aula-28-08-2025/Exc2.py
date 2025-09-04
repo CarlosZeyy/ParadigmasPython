@@ -1,6 +1,10 @@
 valor = int(input("Digite um valor: "))
 
-if valor < 0 :
-    print("Avenida")
-else :
-    print("Paulista") 
+# if valor < 0 :
+#     print("Avenida")
+# else :
+#     print("Paulista") 
+
+# * Resolução com operador ternario 
+
+print("Avenida") if valor < 0 else print('Paulista')
