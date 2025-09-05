@@ -1,6 +1,6 @@
 # Repositório de Estudos e Projetos
 
-Bem-vindo! Este espaço é dedicado à organização dos meus projetos, anotações e atividades desenvolvidas durante as disciplinas de **Desenvolvimento Web** e **Paradigmas de Linguagem de Programação em Python**.
+Bem-vindo! Este espaço é dedicado à organização dos meus projetos, anotações e atividades desenvolvidas durante as disciplinas de **Paradigmas de Linguagem de Programação em Python**.
 
 ---
 
