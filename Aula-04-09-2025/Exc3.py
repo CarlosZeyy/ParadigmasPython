@@ -1,5 +1,5 @@
 nomes = []
-quantidadeNomes = int(input("Digite a quantidade de nomes que vai digitar: "))
+quantidadeNomes = int(input("Digite a quantidade de nomes: "))
 
 for i in range(quantidadeNomes) :
     nome = input(f"Digite o {i + 1}° nome: ")
