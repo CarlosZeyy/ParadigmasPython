@@ -1,6 +1,8 @@
 import random 
 
-t1, t2, t3 = random.randint(0, 100)
+t1 = random.randint(0, 100)
+t2 = random.randint(0, 100)
+t3 = random.randint(0, 100)
 
 print(t1)
 print(t2)
