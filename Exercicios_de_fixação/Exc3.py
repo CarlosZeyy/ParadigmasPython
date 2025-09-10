@@ -1,10 +1,10 @@
 while True :
     password = str(input("Digite a senha: "))
 
-    if len(password) < 8 :
-        print("Senha deve conter 8 caracteres")
+    if len(password) < 7 :
+        print("Senha deve conter 7 caracteres")
 
-    if password == "INFINITY" :
+    if password == "ESTACIO" :
         print("Você digitou a senha certa!")
         break
     else :
