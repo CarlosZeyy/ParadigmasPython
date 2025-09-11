@@ -1,7 +1,7 @@
 while True :
     password = input("Digite a senha: ")
 
-    if len(password) < 7 :
+    if len(password) != 7 :
         print("Senha deve conter 7 caracteres")
 
     if password == "ESTACIO" :
