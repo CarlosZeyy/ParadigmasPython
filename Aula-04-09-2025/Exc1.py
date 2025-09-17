@@ -10,4 +10,4 @@ print(t3)
 
 nota_final = (t1 * 0.2) + (t2 * 0.3) + (t3 * 0.5)
 
-print(round(nota_final, 2))
+print(f'Media: {round(nota_final, 2)}')
