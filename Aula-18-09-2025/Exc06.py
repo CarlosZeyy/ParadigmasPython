@@ -1,18 +1,7 @@
-dia = (1, 2, 3, 4, 5, 6, 7)
+dias_semana = ("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado")
 
-semana = int(input("Digite um valor: "))
+dia = int(input('Digite um numero: '))
 
-if semana == dia[0] :
-    print('Domingo')
-elif semana == dia[1] :
-    print('Segunda')
-elif semana == dia[2] :
-    print('Terça')
-elif semana == dia[3] :
-    print('Quarta')
-elif semana == dia[4] :
-    print('Quinta')
-elif semana == dia[5] :
-    print('Sexta')
-else:
-    print('Sabado')
+semana = dias_semana[dia - 1]
+
+print(semana)
