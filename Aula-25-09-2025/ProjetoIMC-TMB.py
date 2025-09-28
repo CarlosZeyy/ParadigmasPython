@@ -31,9 +31,6 @@ print("4 - Menor TMB")
 print("5 - Exibe as informações dos usuarios registrados\n")
 opcoes = int(input("Escolha uma das opções: "))
 
-
-valor_menor_imc = pacientes[0]["imc"]
-
 if opcoes == 1:
     valor_maior_imc = pacientes[0]["imc"]
 
