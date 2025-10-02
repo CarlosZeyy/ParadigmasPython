@@ -1,6 +1,7 @@
 pacientes = []
+qtd_pacientes = int(input("Digite a quantidade de pacientes: "))
 
-for i in range(3):
+for i in range(qtd_pacientes):
     paciente = {
         "nome": input("Digite o seu nome: "),
         "idade": int(input("Digite sua idade: ")),
