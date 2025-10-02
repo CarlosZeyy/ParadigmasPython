@@ -22,7 +22,6 @@ for i in range(3):
         break
     pacientes.append(paciente)
 
-
 print("Opções: ")
 print("1 - Maior IMC")
 print("2 - Maior TMB")
