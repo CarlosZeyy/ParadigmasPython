@@ -25,7 +25,6 @@ for i in range(qtd_pacientes):
         break
     pacientes.append(paciente)
 
-
 print("Opções: ")
 print("1 - Maior IMC")
 print("2 - Maior TMB")
