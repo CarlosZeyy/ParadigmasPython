@@ -1,6 +1,9 @@
-pacientes = []
+import function_project as functionPacients
 
-for i in range(3):
+pacientes = []
+qtd_pacientes = int(input("Digite a quantidade de pacientes que serão registrados: "))
+
+for i in range(qtd_pacientes):
     paciente = {
         "nome": input("Digite o seu nome: "),
         "idade": int(input("Digite sua idade: ")),
@@ -31,58 +34,17 @@ print("4 - Menor TMB")
 print("5 - Exibe as informações dos usuarios registrados\n")
 opcoes = int(input("Escolha uma das opções: "))
 
-if opcoes == 1:
-    valor_maior_imc = pacientes[0]["imc"]
+opcoes_disponiveis = {
+    1: functionPacients.maior_imc,
+    2: functionPacients.maior_tmb,
+    3: functionPacients.menor_imc,
+    4: functionPacients.menor_tmb,
+    5: functionPacients.mostrar_dados,
+}
 
-    for paciente in pacientes:
-        if paciente["imc"] > valor_maior_imc:
-            valor_maior_imc = paciente["imc"]
+opcao_escolhida = opcoes_disponiveis.get(opcoes)
 
-    print("Paciente com o maior IMC: ")
-
-    for paciente in pacientes:
-        if paciente["imc"] == valor_maior_imc:
-            print(f"Nome: {paciente["nome"]}, IMC: {paciente["imc"]:.2f}")
-
-elif opcoes == 2:
-    valor_maior_tmb = pacientes[0]["tmb"]
-
-    for paciente in pacientes:
-        if paciente["tmb"] > valor_maior_tmb:
-            valor_maior_tmb = paciente["tmb"]
-
-    print("Paciente com o maior TMB: ")
-
-    for paciente in pacientes:
-        if paciente["tmb"] == valor_maior_tmb:
-            print(f"Nome: {paciente["nome"]}, TMB: {paciente["tmb"]:.2f}")
-
-elif opcoes == 3:
-    valor_menor_imc = pacientes[0]["imc"]
-
-    for paciente in pacientes:
-        if paciente["imc"] < valor_menor_imc:
-            valor_menor_imc = paciente["imc"]
-    
-    print("Paciente com o menor IMC: ")
-
-    for paciente in pacientes:
-        if paciente["imc"] == valor_menor_imc:
-            print(f"Nome: {paciente["nome"]}, IMC: {paciente["imc"]:.2f}")
-
-elif opcoes == 4:
-    valor_menor_tmb = pacientes[0]["tmb"]
-
-    for paciente in pacientes:
-        if paciente["tmb"] < valor_menor_tmb:
-            valor_menor_tmb = paciente["tmb"]
-        
-    print("Paciente com o menor TMB: ")
-
-    for paciente in pacientes:
-        if paciente["tmb"] == valor_menor_tmb:
-            print(f"Nome: {paciente["nome"]}, TMB: {paciente["tmb"]:.2f}")
-
-elif opcoes == 5:
-    for paciente in pacientes:
-        print(f"Nome: {paciente["nome"]} | Idade: {paciente['idade']} | Sexo: {paciente['sexo']} | Peso: {paciente['peso']} | Altura: {paciente['altura']} | IMC: {paciente['imc']:.2f} | TMB: {paciente['tmb']:.2f}\n")
+if opcao_escolhida:
+    opcao_escolhida(pacientes)
+else:
+    print('Opção invalida!')
