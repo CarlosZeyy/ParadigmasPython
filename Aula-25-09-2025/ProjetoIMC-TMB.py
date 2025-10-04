@@ -1,4 +1,4 @@
-import function_project as functionPacients
+import function_project as functionPatient
 
 pacientes = []
 qtd_pacientes = int(input("Digite a quantidade de pacientes que serão registrados: "))
@@ -11,7 +11,7 @@ for i in range(qtd_pacientes):
         "peso": float(input("Digite o seu peso: ")),
         "altura": float(input("Digite a sua altura (Metros): ")),
     }
-    
+
     imcCalculado = paciente["peso"] / (paciente["altura"] ** 2)
     paciente["imc"] = imcCalculado
 
@@ -37,11 +37,11 @@ print("5 - Exibe as informações dos usuarios registrados\n")
 opcoes = int(input("Escolha uma das opções: "))
 
 opcoes_disponiveis = {
-    1: functionPacients.maior_imc,
-    2: functionPacients.maior_tmb,
-    3: functionPacients.menor_imc,
-    4: functionPacients.menor_tmb,
-    5: functionPacients.mostrar_dados,
+    1: functionPatient.maior_imc,
+    2: functionPatient.maior_tmb,
+    3: functionPatient.menor_imc,
+    4: functionPatient.menor_tmb,
+    5: functionPatient.mostrar_dados,
 }
 
 opcao_escolhida = opcoes_disponiveis.get(opcoes)
