@@ -11,18 +11,21 @@ for i in range(qtd_pacientes):
         "peso": float(input("Digite o seu peso: ")),
         "altura": float(input("Digite a sua altura (Metros): ")),
     }
+    
     imcCalculado = paciente["peso"] / (paciente["altura"] ** 2)
     paciente["imc"] = imcCalculado
 
-    if paciente["sexo"] == "F" or paciente["sexo"] == "f":
+    while paciente["sexo"].upper() not in ("F", "M"):
+        print("Opção invalida!")
+        paciente["sexo"] = input("Por favor, Digite o seu sexo (F/M): ")
+
+    if paciente["sexo"].upper() == "F":
         tmbM = 9.99 * paciente["peso"] + 6.25 * (paciente["altura"] * 100) - 4.92 * paciente["idade"] - 161
         paciente["tmb"] = tmbM
-    elif paciente["sexo"] == "M" or paciente["sexo"] == "m":
+    elif paciente["sexo"].upper() == "M":
         tmbH = 9.99 * paciente["peso"] + 6.25 * (paciente["altura"] * 100) - 4.92 * paciente["idade"] + 5
         paciente["tmb"] = tmbH
-    else:
-        print("Erro ao receber dados, verifique se os campos foram preenchidos corretamente.")
-        break
+
     pacientes.append(paciente)
 
 print("Opções: ")
