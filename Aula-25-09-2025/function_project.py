@@ -1,55 +1,25 @@
+def _main(pacientes, chave, operacao, desc_valor):
+    valor_principal = operacao(paciente[chave] for paciente in pacientes)
+
+    print(f"Pacientes com {desc_valor}: ")
+
+    for paciente in pacientes:
+        if paciente[chave] == valor_principal:
+            print(f"Nome: {paciente["nome"]}, {chave.upper()}: {paciente[chave]:.2f}")
+
 def maior_imc(pacientes):
-    valor_maior_imc = pacientes[0]["imc"]
-
-    for paciente in pacientes:
-        if paciente["imc"] > valor_maior_imc:
-            valor_maior_imc = paciente["imc"]
-
-    print("Paciente com o maior IMC: ")
-
-    for paciente in pacientes:
-        if paciente["imc"] == valor_maior_imc:
-            print(f"Nome: {paciente["nome"]}, IMC: {paciente["imc"]:.2f}")
+    _main(pacientes, "imc", max, "Maior IMC")
 
 def maior_tmb(pacientes):
-    valor_maior_tmb = pacientes[0]["tmb"]
-
-    for paciente in pacientes:
-        if paciente["tmb"] > valor_maior_tmb:
-            valor_maior_tmb = paciente["tmb"]
-
-    print("Paciente com o maior TMB: ")
-
-    for paciente in pacientes:
-        if paciente["tmb"] == valor_maior_tmb:
-            print(f"Nome: {paciente["nome"]}, TMB: {paciente["tmb"]:.2f}")
+    _main(pacientes, "tmb", max, "Maior TMB")
 
 def menor_imc(pacientes):
-    valor_menor_imc = pacientes[0]["imc"]
-
-    for paciente in pacientes:
-        if paciente["imc"] < valor_menor_imc:
-            valor_menor_imc = paciente["imc"]
-    
-    print("Paciente com o menor IMC: ")
-
-    for paciente in pacientes:
-        if paciente["imc"] == valor_menor_imc:
-            print(f"Nome: {paciente["nome"]}, IMC: {paciente["imc"]:.2f}")
+    _main(pacientes, "imc", min, "Menor IMC")
 
 def menor_tmb(pacientes):
-    valor_menor_tmb = pacientes[0]["tmb"]
-
-    for paciente in pacientes:
-        if paciente["tmb"] < valor_menor_tmb:
-            valor_menor_tmb = paciente["tmb"]
-        
-    print("Paciente com o menor TMB: ")
-
-    for paciente in pacientes:
-        if paciente["tmb"] == valor_menor_tmb:
-            print(f"Nome: {paciente["nome"]}, TMB: {paciente["tmb"]:.2f}")
+    _main(pacientes, "tmb", min, "Menor TMB")
 
 def mostrar_dados(pacientes):
+    print("\n--- Informações de todos os pacientes registrados ---")
     for paciente in pacientes:
         print(f"Nome: {paciente["nome"]} | Idade: {paciente['idade']} | Sexo: {paciente['sexo']} | Peso: {paciente['peso']} | Altura: {paciente['altura']} | IMC: {paciente['imc']:.2f} | TMB: {paciente['tmb']:.2f}\n")
