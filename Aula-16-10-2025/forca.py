@@ -4,8 +4,8 @@ wrongs = 0
 words = ['PYTHON', 'JAVA', 'KOTLIN', 'JAVASCRIPT', 'TYPESCRIPT']
 tips = [
     'É uma serpente e uma linguagem', 
-    'Linguagem robusta referencia em back-end', 
-    'Linguagem criada pela JetBrains e usada para desenvolvimento mobile', 
+    'Linguagem robusta referência em aplicações de back-end', 
+    'Linguagem criada pela JetBrains e usada para desenvolvimento mobile Android', 
     'Linguagem padrão para web front-end', 
     'Um superconjunto do JavaScript'
 ]
