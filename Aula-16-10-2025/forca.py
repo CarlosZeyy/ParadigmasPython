@@ -30,6 +30,7 @@ while wrongs < 3 and '_' in emptyWord:
     wordTyped = updateUi()
 
     if wordTyped == '#':
+        print('Finalizando jogo...')
         break
 
     if wordTyped in secretWord:
