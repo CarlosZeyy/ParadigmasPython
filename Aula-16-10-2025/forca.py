@@ -25,7 +25,6 @@ def updateUi() :
     char = input('Digite uma letra: ').upper()
     return char
 
-
 while wrongs < 3 and '_' in emptyWord:
     wordTyped = updateUi()
 
