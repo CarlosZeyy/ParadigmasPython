@@ -1,6 +1,4 @@
-import random
-import modules as uiModule
-import words_tips as wt
+import random, modules as uiModule, words_tips as wt
 
 wrongs = 0
 words = wt.words
