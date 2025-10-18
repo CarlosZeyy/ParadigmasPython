@@ -1,6 +1,7 @@
 import random, os, time
 
 wrongs = 0
+usedLetters = []
 words = ['PYTHON', 'JAVA', 'KOTLIN', 'JAVASCRIPT', 'TYPESCRIPT', 'HTML', 'CSS', 'REACT', 'ANGULAR', 'VUE']
 tips = [
     'É uma serpente e uma linguagem.', 
@@ -29,6 +30,10 @@ def updateUi() :
     print("="*20)
     print(f'\nDica: {secretTip}')
     print(f'\nTentativas restantes: {3 - wrongs}')
+
+    if usedLetters:
+        print(f'Letras que já foram usadas: {" ".join(sorted(usedLetters))}')
+
     print(f'\nPalavra: {" ".join(emptyWord)}\n')
     char = input('Digite uma letra: ')
     return char.upper()
@@ -39,12 +44,20 @@ while wrongs < 3 and '_' in emptyWord:
     if wordTyped == '#':
         print('Finalizando jogo...')
         time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
         break
 
     if len(wordTyped) != 1 or not wordTyped.isalpha():
         print('Invalido! Digite apenas uma letra.')
         time.sleep(1)
         continue
+
+    if wordTyped in usedLetters:
+        print(f'\nA letra "{wordTyped}" já foi usada. Tente outra')
+        time.sleep(2)
+        continue
+
+    usedLetters.append(wordTyped)
 
     if wordTyped in secretWord:
         for i in range(len(secretWord)):

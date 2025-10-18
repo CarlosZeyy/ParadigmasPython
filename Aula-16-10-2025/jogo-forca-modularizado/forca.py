@@ -1,8 +1,9 @@
-import random, modules as uiModule, words_tips as wt
+import random, time, modules as uiModule, words_tips as wt
 
 wrongs = 0
 words = wt.words
 tips = wt.tips
+equalLetters = uiModule.usedLetters
 
 randIndex = random.randint(0, len(words) - 1)
 secretWord = words[randIndex]
@@ -18,6 +19,13 @@ while wrongs < 3 and '_' in emptyWord:
 
     if uiModule.letter(wordTyped):
         continue
+
+    if wordTyped in uiModule.usedLetters:
+        print(f'\nA letra "{wordTyped}" já foi usada. Tente outra')
+        time.sleep(2)
+        continue
+
+    uiModule.usedLetters.append(wordTyped)
 
     if not uiModule.checkLetter(wordTyped, secretWord, emptyWord):
         wrongs += 1

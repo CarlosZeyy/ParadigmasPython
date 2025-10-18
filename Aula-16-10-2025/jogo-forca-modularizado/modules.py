@@ -1,5 +1,7 @@
 import os, time
 
+usedLetters = []
+
 def updateUi(tip, wrong, word) :
     os.system('cls' if os.name == 'nt' else 'clear')
     
@@ -8,6 +10,11 @@ def updateUi(tip, wrong, word) :
     print("="*20)
     print(f'\nDica: {tip}')
     print(f'\nTentativas restantes: {3 - wrong}')
+
+    if usedLetters: 
+        print(f'Letras que já foram usadas: {" ".join(sorted(usedLetters))}')
+        time.sleep(1)
+
     print(f'\nPalavra: {" ".join(word)}\n')
     char = input('Digite uma letra: ')
     return char.upper()
