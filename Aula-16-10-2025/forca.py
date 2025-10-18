@@ -1,36 +1,50 @@
 import random, os, time
 
 wrongs = 0
-words = ['PYTHON', 'JAVA', 'KOTLIN', 'JAVASCRIPT', 'TYPESCRIPT']
+words = ['PYTHON', 'JAVA', 'KOTLIN', 'JAVASCRIPT', 'TYPESCRIPT', 'HTML', 'CSS', 'REACT', 'ANGULAR', 'VUE']
 tips = [
-    'É uma serpente e uma linguagem', 
-    'Linguagem robusta referência em aplicações de back-end', 
-    'Linguagem criada pela JetBrains e usada para desenvolvimento mobile Android', 
-    'Linguagem padrão para web front-end', 
-    'Um superconjunto do JavaScript'
+    'É uma serpente e uma linguagem.', 
+    'Linguagem robusta referência em aplicações de back-end.', 
+    'Linguagem criada pela JetBrains e usada para desenvolvimento mobile Android.', 
+    'Linguagem padrão para web front-end.', 
+    'Um superconjunto do JavaScript que adiciona tipagem estática.',
+    'Linguagem de marcação para criar páginas web.',
+    'Usado para estilizar elementos escritos em uma linguagem de marcação.',
+    'Biblioteca JavaScript para criar interfaces de usuário.',
+    'Framework de aplicação web baseado em TypeScript.',
+    'Framework JavaScript progressivo para construir interfaces de usuário.'
 ]
 
 randIndex = random.randint(0, len(words) - 1)
 secretWord = words[randIndex]
-randTip = tips[randIndex]
+secretTip = tips[randIndex]
 
 emptyWord = ['_' for word in secretWord]
 
 def updateUi() :
-    os.system('clear')
-    print('Jogo da forca')
-    print(f'Dica: {randTip}')
-    print(f'Tentativas restantes: {3 - wrongs}')
-    print(emptyWord)
-    char = input('Digite uma letra: ').upper()
-    return char
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    print("="*20)
+    print('   JOGO DA FORCA')
+    print("="*20)
+    print(f'\nDica: {secretTip}')
+    print(f'\nTentativas restantes: {3 - wrongs}')
+    print(f'\nPalavra: {" ".join(emptyWord)}\n')
+    char = input('Digite uma letra: ')
+    return char.upper()
 
 while wrongs < 3 and '_' in emptyWord:
     wordTyped = updateUi()
 
     if wordTyped == '#':
         print('Finalizando jogo...')
+        time.sleep(1)
         break
+
+    if len(wordTyped) != 1 or not wordTyped.isalpha():
+        print('Invalido! Digite apenas uma letra.')
+        time.sleep(1)
+        continue
 
     if wordTyped in secretWord:
         for i in range(len(secretWord)):
@@ -38,19 +52,24 @@ while wrongs < 3 and '_' in emptyWord:
                 emptyWord[i] = wordTyped
 
         print(f'Você digitou a letra: {wordTyped}')
-        print('Acertou!')
+        print('Você acertou a letra!')
+        time.sleep(1)
     else:
         wrongs += 1
-        print(f'Você digitou a letra: {wordTyped}')
-        print('Errou!')
+        print(f'A letra "{wordTyped}" não está na palavra.')
+        print('Você errou a letra!')
         time.sleep(2)
 
     if wrongs == 3:
         print('Você zerou todas as suas tentativas!')
-        print('Finalizando jogo...')
+        print(f"A palavra secreta era: {secretWord}")
+        time.sleep(1)
+        print('FIM DE JOGO.')
         time.sleep(2)
     
     if '_' not in emptyWord:
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Parabéns!! Você acertou a palavra: {secretWord}')
+        time.sleep(1)
+        print('FIM DE JOGO.')
         time.sleep(2)
