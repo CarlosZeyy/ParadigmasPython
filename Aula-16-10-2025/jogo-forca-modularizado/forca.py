@@ -20,12 +20,12 @@ while wrongs < 3 and '_' in emptyWord:
     if uiModule.letter(wordTyped):
         continue
 
-    if wordTyped in uiModule.usedLetters:
+    if wordTyped in equalLetters:
         print(f'\nA letra "{wordTyped}" já foi usada. Tente outra')
         time.sleep(2)
         continue
 
-    uiModule.usedLetters.append(wordTyped)
+    equalLetters.append(wordTyped)
 
     if not uiModule.checkLetter(wordTyped, secretWord, emptyWord):
         wrongs += 1
