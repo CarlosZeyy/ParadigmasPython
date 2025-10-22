@@ -12,22 +12,22 @@ secretTip = tips[randIndex]
 emptyWord = ['_' for word in secretWord]
 
 while wrongs < 3 and '_' in emptyWord:
-    wordTyped = uiModule.updateUi(secretTip, wrongs, emptyWord)
+    letterTyped = uiModule.updateUi(secretTip, wrongs, emptyWord)
 
-    if uiModule.quitGame(wordTyped):
+    if uiModule.quitGame(letterTyped):
         break
 
-    if uiModule.letter(wordTyped):
+    if uiModule.letter(letterTyped):
         continue
 
-    if wordTyped in equalLetters:
-        print(f'\nA letra "{wordTyped}" já foi usada. Tente outra')
+    if letterTyped in equalLetters:
+        print(f'\nA letra "{letterTyped}" já foi usada. Tente outra')
         time.sleep(2)
         continue
 
-    equalLetters.append(wordTyped)
+    equalLetters.append(letterTyped)
 
-    if not uiModule.checkLetter(wordTyped, secretWord, emptyWord):
+    if not uiModule.checkLetter(letterTyped, secretWord, emptyWord):
         wrongs += 1
 
     if uiModule.lose(wrongs, secretWord):
