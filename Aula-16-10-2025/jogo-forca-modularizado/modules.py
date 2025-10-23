@@ -59,6 +59,7 @@ def quitGame(wordT):
     if wordT == '#':
         print('Finalizando jogo...')
         time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
         return True
     return False
     
