@@ -39,37 +39,37 @@ def updateUi() :
     return char.upper()
 
 while wrongs < 3 and '_' in emptyWord:
-    wordTyped = updateUi()
+    letterTyped = updateUi()
 
-    if wordTyped == '#':
+    if letterTyped == '#':
         print('Finalizando jogo...')
         time.sleep(1)
         os.system('cls' if os.name == 'nt' else 'clear')
         break
 
-    if len(wordTyped) != 1 or not wordTyped.isalpha():
+    if len(letterTyped) != 1 or not letterTyped.isalpha():
         print('Invalido! Digite apenas uma letra.')
         time.sleep(1)
         continue
 
-    if wordTyped in usedLetters:
-        print(f'\nA letra "{wordTyped}" já foi usada. Tente outra')
+    if letterTyped in usedLetters:
+        print(f'\nA letra "{letterTyped}" já foi usada. Tente outra')
         time.sleep(2)
         continue
 
-    usedLetters.append(wordTyped)
+    usedLetters.append(letterTyped)
 
-    if wordTyped in secretWord:
+    if letterTyped in secretWord:
         for i in range(len(secretWord)):
-            if secretWord[i] == wordTyped:
-                emptyWord[i] = wordTyped
+            if secretWord[i] == letterTyped:
+                emptyWord[i] = letterTyped
 
-        print(f'Você digitou a letra: {wordTyped}')
+        print(f'Você digitou a letra: {letterTyped}')
         print('Você acertou a letra!')
         time.sleep(1)
     else:
         wrongs += 1
-        print(f'A letra "{wordTyped}" não está na palavra.')
+        print(f'A letra "{letterTyped}" não está na palavra.')
         print('Você errou a letra!')
         time.sleep(2)
 
