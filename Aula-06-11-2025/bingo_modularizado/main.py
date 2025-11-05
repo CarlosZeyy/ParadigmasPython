@@ -34,6 +34,8 @@ while True:
                 print('Opção Inválida! Digite 1 ou 2.')
                 time.sleep(1)
                 os.system('cls' if os.name == 'nt' else 'clear')
+                print(f'Ultima bolinha sorteada: {meu_bingo.ultimo_numero_sorteado}\n')
+                print(f'Bolinhas sorteadas ({meu_bingo.bolinhas_sorteadas}): {meu_bingo.bolinhas_sorteadas}')
 
         except ValueError:
             print('\n!!! ERRO: Por favor, digite apenas NÚMEROS (1 ou 2). !!!')
